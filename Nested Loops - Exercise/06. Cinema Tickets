@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace _06.Cinema_Tickets1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string movie = Console.ReadLine();
+            double student2 = 0;
+            double standard2 = 0;
+            double kid2 = 0;
+            double tickets = 0;
+            double freeSpaces = 0;
+            double percent = 0;
+            while(movie != "Finish")
+            {
+                double student1 = 0;
+                double standard1 = 0;
+                double kid1 = 0;
+                double sum = 0;
+                freeSpaces = double.Parse(Console.ReadLine());
+                string type = Console.ReadLine();
+                while(type != "End")
+                {
+                    if (type == "student")
+                    {
+                        student1++;
+                        student2++;
+                    }
+                    else if (type == "standard")
+                    {
+                        standard1++;
+                        standard2++;
+                    }
+                    else if (type == "kid")
+                    {
+                        kid1++;
+                        kid2++;
+                    }
+                    sum = student1 + standard1 + kid1;
+                    tickets++;
+                    if (sum >= freeSpaces)
+                    {
+                        break;
+                    }
+                    type = Console.ReadLine();
+                }
+                percent = sum * 100 / freeSpaces;
+                Console.WriteLine($"{movie} - {percent:f2}% full.");
+                movie = Console.ReadLine();
+            }
+            double studPerc = 100 * student2 / tickets;
+            double standPerc = 100 * standard2 / tickets;
+            double kidPerc = 100 * kid2 / tickets;
+
+            Console.WriteLine($"Total tickets: {tickets}");
+            Console.WriteLine($"{studPerc:f2}% student tickets.");
+            Console.WriteLine($"{standPerc:f2}% standard tickets.");
+            Console.WriteLine($"{kidPerc:f2}% kids tickets.");
+        }
+    }
+}
