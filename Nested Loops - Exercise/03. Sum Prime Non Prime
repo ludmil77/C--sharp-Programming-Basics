@@ -1,0 +1,41 @@
+using System;
+
+namespace _03._Sum_Prime_Non_Prime
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input;
+            int sumPrime = 0;
+            int sumNonprime = 0;
+            while (( input = Console.ReadLine()) != "stop")
+            {
+                int n = int.Parse(input);
+                if ( n < 0 )
+                {
+                    Console.WriteLine("Number is negative.");
+                }
+                else if ( n == 2 || n == 3 || n == 5 || n == 7 )
+                {
+                    sumPrime += n;
+                }
+                else if ( n > 7  &&  n % 2 != 0  &&  n % 3 != 0  &&  n % 5 != 0  &&  n % 7 != 0 )
+                {
+                    sumPrime += n;
+                }
+                else
+                {
+                    sumNonprime += n;
+                }
+            }
+            while ((input = Console.ReadLine()) == "stop" )
+            {
+                break;
+            }
+            Console.WriteLine($"Sum of all prime numbers is: {sumPrime}");
+            Console.WriteLine($"Sum of all non prime numbers is: {sumNonprime}");
+            return;
+        }
+    }
+}
