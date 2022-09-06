@@ -1,0 +1,34 @@
+using System;
+
+namespace _04._Train_The_Trainers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            string name = Console.ReadLine();
+            double average = 0;
+            double totalAverage = 0;
+            int stud = 0;
+            double rating = 0;
+            while ( name != "Finish")
+            {
+                rating = 0;
+                for ( int i = 1; i <= n; i++ )
+                {
+                     rating += double.Parse(Console.ReadLine());
+                }
+                average = rating / n;
+                Console.WriteLine($"{name} - {average:f2}.");
+                stud++;
+                totalAverage += average;
+                name = Console.ReadLine();
+            }
+           
+            totalAverage = totalAverage / (stud);
+            Console.WriteLine($"Student's final assessment is {totalAverage:f2}.");
+            return;
+        }
+    }
+}
