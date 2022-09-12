@@ -1,0 +1,54 @@
+using System;
+
+namespace _12._The_song_of_the_wheels
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int counter = 0;
+            int number = 0;
+            int password = 0;
+            bool fourth = false;
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 1; j <= 9; j++)
+                {
+                    for (int k = 1; k <=9; k++)
+                    {
+                        for (int l = 1; l <= 9; l++)
+                        {
+
+                            if (i * j + k * l == n && i < j && k > l)
+                            {
+                               
+                                counter++;
+                                number = 1000 * i + 100 * j + 10 * k + l;
+                                Console.Write($"{number} ");
+                                
+                                if (counter == 4)
+                                {
+                                    fourth = true;
+                                    password = number;
+                                    
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            Console.WriteLine();
+            if (fourth)
+            {
+                Console.WriteLine($"Password: {password}");
+            }
+             if (counter < 4)
+            {
+                Console.WriteLine("No!");
+            }
+            
+        }
+    }
+}
