@@ -1,0 +1,56 @@
+using System;
+
+namespace _09._House
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            for (int row = 0; row < (n + 1) / 2; row++)
+            {
+                if (n % 2 == 0)
+                {
+                    for (int col = 1;col <= (n - 2)/2 - row; col++)
+                    {
+                        Console.Write("-");
+                    }
+                    for (int col = 1; col <= 2 + 2*row; col++)
+                    {
+                        Console.Write("*");
+                    }
+                    for (int col = 1; col <= (n - 2)/2 - row; col++)
+                    {
+                        Console.Write("-");
+                    }
+                }
+                else
+                {
+                    for (int col = 1; col <= (n - 1) / 2 - row; col++)
+                    {
+                        Console.Write("-");
+                    }
+                    for (int col = 1; col <= 1 + 2 * row; col++)
+                    {
+                        Console.Write("*");
+                    }
+                    for (int col = 1; col <= (n - 1) / 2 - row; col++)
+                    {
+                        Console.Write("-");
+                    }
+                }
+                Console.WriteLine();
+            }
+            for (int rol = 1; rol <= n/2 ; rol++)
+            {
+                Console.Write("|");
+                for (int col = 1; col <= n - 2; col++)
+                {
+                    Console.Write("*");
+                }
+                Console.Write("|");
+                Console.WriteLine();
+            }
+        }
+    }
+}
