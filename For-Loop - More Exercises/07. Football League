@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace _07.Football_League
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int capacity = int.Parse(Console.ReadLine());
+            int fans = int.Parse(Console.ReadLine());
+            int counterA = 0;
+            int counterB = 0;
+            int counterV = 0;
+            int counterG = 0;
+            for (int i = 1; i <= fans; i++)
+            {
+                string sector = Console.ReadLine();
+                if (sector == "A")
+                {
+                    counterA++;
+                }
+                else if (sector == "B")
+                {
+                    counterB++;
+                }
+                else if (sector == "V")
+                {
+                    counterV++;
+                }
+                else if (sector == "G")
+                {
+                    counterG++;
+                }
+            }
+            Console.WriteLine($"{(counterA*100.00/fans):f2}%");
+            Console.WriteLine($"{(counterB * 100.00 / fans):f2}%");
+            Console.WriteLine($"{(counterV * 100.00 / fans):f2}%");
+            Console.WriteLine($"{(counterG * 100.00 / fans):f2}%");
+            Console.WriteLine($"{(fans * 100.00 / capacity):f2}%");
+        }
+    }
+}
