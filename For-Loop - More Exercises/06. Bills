@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace _06.Bills
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int months = int.Parse(Console.ReadLine());
+            double counter = 0;
+            double counterOther = 0;
+            for (int i = 1; i <= months; i++)
+            {
+                double current = double.Parse(Console.ReadLine());
+                counter += current;
+                counterOther += 1.20 * (current + 20 + 15);
+            }
+            double average = (counter + months * 20 + months * 15 + counterOther) / months;
+            Console.WriteLine($"Electricity: {counter:f2} lv");
+            Console.WriteLine($"Water: {(20*months):f2} lv");
+            Console.WriteLine($"Internet: {(15*months):f2} lv");
+            Console.WriteLine($"Other: {counterOther:f2} lv");
+            Console.WriteLine($"Average: {average:f2} lv");
+        }
+    }
+}
