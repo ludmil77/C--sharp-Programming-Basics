@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace _05.Game_Of_Intervals
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int counter1 = 0;
+            int counter2 = 0;
+            int counter3 = 0;
+            int counter4 = 0;
+            int counter5 = 0;
+            int counter6 = 0;
+            double points = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                int number = int.Parse(Console.ReadLine());
+                if (number >= 0 && number <= 9)
+                {
+                    counter1++;
+                    points += 0.20 * number;
+                }
+                else if (number >= 10 && number <= 19)
+                {
+                    counter2++;
+                    points += 0.30 * number;
+                }
+                else if (number >= 20 && number <= 29)
+                {
+                    counter3++;
+                    points += 0.40 * number;
+                }
+                else if (number >= 30 && number <= 39)
+                {
+                    counter4++;
+                    points += 50;
+                }
+                else if (number >= 40 && number <= 50)
+                {
+                    counter5++;
+                    points += 100;
+                }
+                else if (number < 0 || number > 50)
+                {
+                    counter6++;
+                    points /= 2;
+                }
+            }
+            Console.WriteLine($"{points:f2}");
+            Console.WriteLine($"From 0 to 9: {(counter1 * 100.00 / n):f2}%");
+            Console.WriteLine($"From 10 to 19: {(counter2 * 100.00 / n):f2}%");
+            Console.WriteLine($"From 20 to 29: {(counter3 * 100.00 / n):f2}%");
+            Console.WriteLine($"From 30 to 39: {(counter4 * 100.00 / n):f2}%");
+            Console.WriteLine($"From 40 to 50: {(counter5 * 100.00 / n):f2}%");
+            Console.WriteLine($"Invalid numbers: {(counter6 * 100.00 / n):f2}%");
+        }
+    }
+}
