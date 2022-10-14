@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace _02.Report_System
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int desiredSum = int.Parse(Console.ReadLine());
+            int counter = 0;
+            int counter1 = 0;
+            int counter2 = 0;
+            double sumCash = 0;
+            double sumCard = 0;
+            double sumTotal = 0;
+            while(true)
+            {
+                string command = Console.ReadLine();
+                if (command != "End")
+                {
+                    int prices = int.Parse(command);
+                    counter++;
+                    if (counter % 2 != 0)
+                    {
+                        if (prices <= 100)
+                        {
+                            sumCash += prices;
+                            sumTotal += prices;
+                            counter1++;
+                            Console.WriteLine("Product sold!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error in transaction!");
+                        }
+                    }
+                    else if (counter % 2 == 0)
+                    {
+                        if (prices > 10)
+                        {
+                            sumCard += prices;
+                            sumTotal += prices;
+                            counter2++;
+                            Console.WriteLine("Product sold!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error in transaction!");
+                        }
+                    }
+
+                    if (sumTotal >= desiredSum)
+                    {
+                        Console.WriteLine($"Average CS: {(sumCash/counter1):f2}");
+                        Console.WriteLine($"Average CC: {(sumCard/counter2):f2}");
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Failed to collect required money for charity.");
+                    return;
+                }
+            }
+        }
+    }
+}
