@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace _01.Dishwasher
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int bottle = int.Parse(Console.ReadLine());
+            int counter = 0;
+            int counter2 = 0;
+            int counter3 = 0;
+            int counter4 = 0;
+            while (true)
+            {
+                string command = Console.ReadLine();
+                if (command != "End")
+                {
+                    int dishwasher = int.Parse(command);
+                    counter++;
+                    if (counter % 3 == 0)
+                    {
+                        counter2 += 15 * dishwasher;
+                        counter3 += dishwasher;
+                    }
+                    else
+                    {
+                        counter2 += 5 * dishwasher;
+                        counter4 += dishwasher;
+                    }
+                    if (counter2 > 750 * bottle)
+                    {
+                        Console.WriteLine($"Not enough detergent, {counter2 - 750 * bottle} ml. more necessary!");
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Detergent was enough!");
+                    Console.WriteLine($"{counter4} dishes and {counter3} pots were washed.");
+                    Console.WriteLine($"Leftover detergent {750 * bottle - counter2} ml.");
+                    return;
+                }
+            }
+        }
+    }
+}
